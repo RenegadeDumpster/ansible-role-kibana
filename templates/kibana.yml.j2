@@ -83,7 +83,7 @@ elasticsearch.ssl.certificateAuthorities: ["{{ elasticsearch_certificateAuthorit
 {% endif %}
 
 # To disregard the validity of SSL certificates, change this setting's value to 'none'.
-{% if kibana_insecure_ssl | bool %}
+{% if kibana_insecure_ssl is defined and kibana_insecure_ssl | bool %}
 elasticsearch.ssl.verificationMode: none
 {% else %}
 elasticsearch.ssl.verificationMode: full
